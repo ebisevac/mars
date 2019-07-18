@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+    </div>
+    <h2>Latest Mars News</h2>
+    <h3>{{ marsdata.news_title }}</h3>
+    <p>{{ marsdata.news_paragraph }}</p>
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Featured Mars Image</h3>
+        <img src="{{ marsdata.featured_image }}" alt="Featured Image" style="width:840px;height:500px;"> 
+        <!-- {{featured_image}}" -->
+      </div>
+      <div class="col-md-4">
+        <div>
+          <h3>Current Weather on Mars</h3>
+          <p>{{ marsdata.mars_weather }}</p>
+          <hr>
+        </div>
+        <div>{{ marsdata.pandas_html | safe }}</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container-fluid">
+      <div class="jumbotron text-center">
+        <h1>Mars Hemisperes</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>{{marsdata.hemispere_image[0].title}}</h3>
+            <img src="{{ marsdata.hemispere_image[0].img_url }}" alt="Featured Image" style="width:500px;height:500px;"> 
+            <h3>{{marsdata.hemispere_image[1].title}}</h3>
+            <img src="{{ marsdata.hemispere_image[1].img_url }}" alt="Featured Image" style="width:500px;height:500px;"> 
+          </div>
+
+          <div class="col-md-6">
+            <h3>{{marsdata.hemispere_image[2].title}}</h3>
+            <img src="{{ marsdata.hemispere_image[0].img_url }}" alt="Featured Image" style="width:500px;height:500px;"> 
+            <h3>{{marsdata.hemispere_image[3].title}}</h3>
+            <img src="{{ marsdata.hemispere_image[1].img_url }}" alt="Featured Image" style="width:500px;height:500px;"> 
+          </div>  
+        </div>
+      </div>
+  </div>
+</body>
+
+</html>
